@@ -4,9 +4,9 @@ base de datos
 
 CREATE TABLE public.persona
 (
-  id bigserial,
+  id bigseral,
   nombre character varying(50),
   apellido character varying(50),
-  estado integer DEFAULT 1,
+  estado boolean DEFAULT true,
   CONSTRAINT pk_persona PRIMARY KEY (id)
 )
