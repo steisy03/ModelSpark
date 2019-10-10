@@ -39,14 +39,5 @@ public class Service {
                 return Utilidades.SOF(e.getMessage());
             }
         });
-
-        post("/eliminar_persona", (request, response) -> {
-            try {
-                mdPersona.eliminarPersona(Utilidades.jsonConvertJsonToMap(request.queryParams("json")));
-                return Utilidades.SOF(1);
-            } catch (SQLException e) {
-                return Utilidades.SOF(e.getMessage());
-            }
-        });
     }
 }

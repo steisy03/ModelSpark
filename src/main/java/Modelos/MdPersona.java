@@ -15,10 +15,9 @@ import modulos.Utilidades;
 
 public class MdPersona {
     
-    private final String sqlCrear = "INSERT INTO persona(nombre,apellido) VALUES (?,?)";
-    private final String sqlModficar = "UPDATE persona SET nombre = ?, apellido = ?  WHERE id = ?";
-    private final String sqlEliminar = "UPDATE persona SET estado = ? WHERE id = ?";
-    private final String sqlBuscar = "SELECT id, nombre, apellido FROM persona";
+    private final String sqlCrear = "INSERT INTO persona(nombre,apellido,estado) VALUES (?,?,?)";
+    private final String sqlModficar = "UPDATE persona SET nombre = ?, apellido = ?, estado = ?  WHERE id = ?";
+    private final String sqlBuscar = "SELECT id, nombre, apellido,estado FROM persona";
     private final Conexion conexion;
 
     public MdPersona() {
@@ -30,6 +29,7 @@ public class MdPersona {
                 PreparedStatement pstmt = conn.prepareStatement(sqlCrear)) {
             pstmt.setString(1, map.get("nombre").toString());
             pstmt.setString(2, map.get("apellido").toString());
+            pstmt.setBoolean(3, (Boolean) map.get("estado"));
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw e;
@@ -41,7 +41,8 @@ public class MdPersona {
                 PreparedStatement pstmt = conn.prepareStatement(sqlModficar)) {
             pstmt.setString(1, map.get("nombre").toString());
             pstmt.setString(2, map.get("apellido").toString());
-            pstmt.setInt(3, (Integer) map.get("id"));
+            pstmt.setBoolean(3, (Boolean) map.get("estado"));
+            pstmt.setInt(4, (Integer) map.get("id"));
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw e;
@@ -60,16 +61,5 @@ public class MdPersona {
             throw e;
         }
         return lista;
-    }
-
-    public void eliminarPersona(Map map) throws SQLException {
-        try (Connection conn = conexion.conectar();
-                PreparedStatement pstmt = conn.prepareStatement(sqlEliminar)) {
-            pstmt.setInt(1, 0);
-            pstmt.setInt(2, (Integer) map.get("id"));
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw e;
-        }
     }
 }
