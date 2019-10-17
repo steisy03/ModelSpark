@@ -4,7 +4,7 @@ base de datos
 
 CREATE TABLE public.persona
 (
-  id bigseral,
+  id bigserial,
   nombre character varying(50),
   apellido character varying(50),
   estado boolean DEFAULT true,
