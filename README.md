@@ -10,3 +10,5 @@ CREATE TABLE public.persona
   estado boolean DEFAULT true,
   CONSTRAINT pk_persona PRIMARY KEY (id)
 )
+
+puerto por defecto (Spark): 4567
