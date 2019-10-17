@@ -1,6 +1,6 @@
 # ModelSpark
 
-base de datos
+base de datos (PostgreSQL)
 
 CREATE TABLE public.persona
 (
