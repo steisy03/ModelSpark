@@ -18,6 +18,7 @@ public class MdPersona {
     private final String sqlCrear = "INSERT INTO persona(nombre,apellido,estado) VALUES (?,?,?)";
     private final String sqlModficar = "UPDATE persona SET nombre = ?, apellido = ?, estado = ?  WHERE id = ?";
     private final String sqlBuscar = "SELECT id, nombre, apellido,estado FROM persona";
+    private final String sqlValidar = "SELECT * FROM persona WHERE nombre = ?";
     private final Conexion conexion;
 
     public MdPersona() {
@@ -61,5 +62,18 @@ public class MdPersona {
             throw e;
         }
         return lista;
+    }
+    
+    public int buscarPersona(String nombre) throws SQLException {
+        try (Connection conn = conexion.conectar();
+                PreparedStatement pstmt = conn.prepareStatement(sqlValidar)) {
+            pstmt.setString(1, nombre);
+            if (pstmt.executeQuery().next()) {
+                return 1;
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return 0;
     }
 }

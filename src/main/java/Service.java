@@ -21,6 +21,14 @@ public class Service {
                 return Utilidades.SOF(e.getMessage());
             }
         });
+        
+        post("/get_persona/:nombre", (request, response) -> {
+            try {
+                return Utilidades.SOF(mdPersona.buscarPersona(request.params(":nombre")));
+            } catch (SQLException e) {
+                return Utilidades.SOF(e.getMessage());
+            }
+        });
 
         post("/crear_persona", (request, response) -> {
             try {
