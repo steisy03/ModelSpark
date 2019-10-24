@@ -1,6 +1,6 @@
 # ModelSpark
 
-- base de datos (PostgreSQL)
+### base de datos (PostgreSQL)
 
 ```SQL
 CREATE TABLE public.persona
@@ -19,4 +19,4 @@ CREATE TABLE public.tipo_persona
   CONSTRAINT pk_tipo_persona PRIMARY KEY (id)
 );
 ```
-- puerto por defecto (Spark): 4567
+### puerto por defecto (Spark): 4567
