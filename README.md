@@ -10,6 +10,7 @@ CREATE TABLE public.persona
   nombre character varying(50),
   apellido character varying(50),
   estado boolean DEFAULT true,
+  id_tipo_persona bigint,
   CONSTRAINT pk_persona PRIMARY KEY (id)
 );
 
