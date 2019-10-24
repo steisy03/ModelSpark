@@ -2,6 +2,7 @@
 
 base de datos (PostgreSQL)
 
+```SQL
 CREATE TABLE public.persona
 (
   id bigserial,
@@ -10,6 +11,7 @@ CREATE TABLE public.persona
   estado boolean DEFAULT true,
   CONSTRAINT pk_persona PRIMARY KEY (id)
 );
+```
 
 CREATE TABLE public.tipo_persona
 (
