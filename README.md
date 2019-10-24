@@ -10,9 +10,8 @@ CREATE TABLE public.persona
   apellido character varying(50),
   estado boolean DEFAULT true,
   CONSTRAINT pk_persona PRIMARY KEY (id)
-);```
+);
 
-```SQL
 CREATE TABLE public.tipo_persona
 (
   id bigserial,
