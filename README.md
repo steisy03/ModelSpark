@@ -1,6 +1,6 @@
 # ModelSpark
 
-base de datos (PostgreSQL)
+*base de datos (PostgreSQL)
 
 ```SQL
 CREATE TABLE public.persona
@@ -13,11 +13,12 @@ CREATE TABLE public.persona
 );
 ```
 
+```SQL
 CREATE TABLE public.tipo_persona
 (
   id bigserial,
   descripcion character varying(20),
   CONSTRAINT pk_tipo_persona PRIMARY KEY (id)
 );
-
-puerto por defecto (Spark): 4567
+```
+*puerto por defecto (Spark): 4567
